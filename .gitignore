@@ -4,7 +4,9 @@
 *.iml
 *.ipr
 
-/vault/data/
+compose/vault
+compose/keycloak-data
+compose/postgres-data
 
 ### NetBeans ###
 /nbproject/private/

@@ -1,4 +1,8 @@
-version: '1.0'
+version: '3.8'
+
+networks:
+  arya-banking-net:
+    external: true
 
 services:
   vault:
@@ -12,3 +16,5 @@ services:
     command: vault server -config=vault/config/vault.hcl
     cap_add:
       - IPC_LOCK
+    networks:
+      - arya-banking-net

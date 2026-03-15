@@ -1,0 +1,30 @@
+version: '3.8'
+
+networks:
+  arya-banking-net:
+    external: true
+
+services:
+
+  service-registry:
+    image: karthikulkarni/arya-banking-service-registry:latest
+    container_name: service-registry
+    ports:
+      - "8761:8761"
+    restart: unless-stopped
+    networks:
+      - arya-banking-net
+
+  config-server:
+    image: karthikulkarni/arya-banking-config-server:latest
+    container_name: config-server
+    ports:
+      - "8090:8090"
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://service-registry:8761/eureka/
+    depends_on:
+      - service-registry
+    restart: unless-stopped
+    networks:
+      - arya-banking-net
