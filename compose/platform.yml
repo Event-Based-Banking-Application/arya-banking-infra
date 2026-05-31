@@ -28,3 +28,14 @@ services:
     restart: unless-stopped
     networks:
       - arya-banking-net
+
+  api-gateway:
+    image: karthikulkarni/arya-banking-api-gateway:latest
+    container_name: api-gateway
+    ports:
+      - "8085:8085"
+    depends_on:
+      - service-registry
+    restart: unless-stopped
+    networks:
+      - arya-banking-net
