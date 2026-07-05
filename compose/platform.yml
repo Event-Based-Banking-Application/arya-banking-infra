@@ -26,6 +26,11 @@ services:
     depends_on:
       - service-registry
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090/actuator/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - arya-banking-net
 
@@ -34,8 +39,15 @@ services:
     container_name: api-gateway
     ports:
       - "8085:8085"
+    environment:
+      SPRING_PROFILES_ACTIVE: default
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://service-registry:8761/eureka/
+      SPRING_CLOUD_CONFIG_URI: http://config-server:8090
     depends_on:
-      - service-registry
+      service-registry:
+        condition: service_started
+      config-server:
+        condition: service_healthy
     restart: unless-stopped
     networks:
       - arya-banking-net

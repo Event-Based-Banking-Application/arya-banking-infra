@@ -4,7 +4,7 @@
 *.iml
 *.ipr
 
-compose/vault
+compose/vault/data
 compose/keycloak-data
 compose/postgres-data
 
