@@ -52,6 +52,9 @@ vault: network-create
 vault-down:
 	$(COMPOSE) -f compose/vault.yml down
 
+vault-unseal:
+	powershell -ExecutionPolicy Bypass -File scripts/vault-unseal.ps1
+
 # ─── Cleanup ───────────────────────────────────────────────────────────────────
 
 clean:

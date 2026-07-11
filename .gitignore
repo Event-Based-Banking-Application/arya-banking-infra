@@ -7,6 +7,8 @@
 compose/vault/data
 compose/keycloak-data
 compose/postgres-data
+scripts/vault/init/keys.txt
+scripts/vault/init/keys_raw.json
 
 ### NetBeans ###
 /nbproject/private/
@@ -20,3 +22,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Environment variables (contains secrets)
+.env

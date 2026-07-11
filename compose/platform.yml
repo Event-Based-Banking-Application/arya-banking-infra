@@ -43,6 +43,7 @@ services:
       SPRING_PROFILES_ACTIVE: default
       EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://service-registry:8761/eureka/
       SPRING_CLOUD_CONFIG_URI: http://config-server:8090
+      APP_CONFIG_KEYCLOAK_URL: http://keycloak:8080
     depends_on:
       service-registry:
         condition: service_started
