@@ -55,6 +55,9 @@ vault-down:
 vault-unseal:
 	powershell -ExecutionPolicy Bypass -File scripts/vault-unseal.ps1
 
+vault-unseal-linux:
+	bash scripts/vault-unseal.sh
+
 # ─── Cleanup ───────────────────────────────────────────────────────────────────
 
 clean:
@@ -62,4 +65,4 @@ clean:
 
 .PHONY: network-create network-remove up down restart logs ps \
         kafka kafka-down keycloak keycloak-down \
-        platform platform-down vault vault-down clean
+        platform platform-down vault vault-down vault-unseal-linux clean
