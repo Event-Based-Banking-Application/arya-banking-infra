@@ -7,6 +7,7 @@
 compose/vault/data
 compose/keycloak-data
 compose/postgres-data
+compose/gcp-data
 scripts/vault/init/keys.txt
 scripts/vault/init/keys_raw.json
 
